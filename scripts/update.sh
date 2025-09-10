@@ -1,13 +1,13 @@
 #!/bin/bash
 # ===========================================
-# HYPRLAND DOTFILES UPDATE SCRIPT
+# СКРИПТ ОБНОВЛЕНИЯ HYPRLAND DOTFILES
 # ===========================================
 
 set -e
 
-echo "🔄 Hyprland Dotfiles Güncelleniyor..."
+echo "🔄 Обновление Hyprland Dotfiles..."
 
-# Renk kodları
+# Цветовые коды
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -26,9 +26,9 @@ print_warning() {
     echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
-# Backup oluştur
+# Создать резервную копию
 create_backup() {
-    print_status "Mevcut konfigürasyon yedekleniyor..."
+    print_status "Создание резервной копии текущей конфигурации..."
     
     local backup_dir="$HOME/.config_backup_$(date +%Y%m%d_%H%M%S)"
     mkdir -p "$backup_dir"
@@ -46,39 +46,39 @@ create_backup() {
         cp -r "$HOME/.config/kitty" "$backup_dir/"
     fi
     
-    print_success "Yedek oluşturuldu: $backup_dir"
+    print_success "Резервная копия создана: $backup_dir"
 }
 
-# Konfigürasyonları güncelle
+# Обновить конфигурации
 update_configs() {
-    print_status "Konfigürasyonlar güncelleniyor..."
+    print_status "Обновление конфигураций..."
     
-    # Yeni konfigürasyonları kopyala
+    # Копировать новые конфигурации
     cp -r .config/* ~/.config/
     
-    # Script dosyalarını güncelle
+    # Обновить скрипты
     cp scripts/* ~/.local/bin/
     chmod +x ~/.local/bin/*
     
-    print_success "Konfigürasyonlar güncellendi!"
+    print_success "Конфигурации обновлены!"
 }
 
-# Hyprland'i yeniden yükle
+# Перезагрузить Hyprland
 reload_hyprland() {
-    print_status "Hyprland yeniden yükleniyor..."
+    print_status "Перезагрузка Hyprland..."
     
     if pgrep -x "Hyprland" > /dev/null; then
         hyprctl reload
-        print_success "Hyprland yeniden yüklendi!"
+        print_success "Hyprland перезагружен!"
     else
-        print_warning "Hyprland çalışmıyor, manuel olarak başlatın."
+        print_warning "Hyprland не запущен, запустите вручную."
     fi
 }
 
-# Ana güncelleme fonksiyonu
+# Основная функция обновления
 main() {
     echo "==========================================="
-    echo "    HYPRLAND DOTFILES UPDATE"
+    echo "    ОБНОВЛЕНИЕ HYPRLAND DOTFILES"
     echo "==========================================="
     echo
     
@@ -88,7 +88,7 @@ main() {
     
     echo
     echo "==========================================="
-    print_success "Güncelleme tamamlandı!"
+    print_success "Обновление завершено!"
     echo "==========================================="
 }
 

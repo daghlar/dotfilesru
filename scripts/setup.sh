@@ -31,9 +31,9 @@ print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Gerekli paketleri kontrol et ve yükle
+# Проверить и установить необходимые пакеты
 install_dependencies() {
-    print_status "Gerekli paketler kontrol ediliyor..."
+    print_status "Проверка необходимых пакетов..."
     
     local packages=(
         "hyprland"
