@@ -18,33 +18,33 @@ print_success() {
     echo -e "${GREEN}[SUCCESS]${NC} $1"
 }
 
-# Screenshot dizini oluştur
+# Создать каталог для скриншотов
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
 
-# Tarih ve saat
+# Дата и время
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
-# Screenshot fonksiyonları
+# Функции скриншотов
 screenshot_area() {
-    print_status "Alan seçimi yapılıyor..."
+    print_status "Выбор области..."
     grimblast copy area "$SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
-    print_success "Screenshot alındı: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
+    print_success "Скриншот сделан: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
 }
 
 screenshot_screen() {
-    print_status "Ekran görüntüsü alınıyor..."
+    print_status "Создание скриншота экрана..."
     grimblast copy screen "$SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
-    print_success "Screenshot alındı: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
+    print_success "Скриншот сделан: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
 }
 
 screenshot_window() {
-    print_status "Pencere görüntüsü alınıyor..."
+    print_status "Создание скриншота окна..."
     grimblast copy active "$SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
-    print_success "Screenshot alındı: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
+    print_success "Скриншот сделан: $SCREENSHOT_DIR/screenshot_${TIMESTAMP}.png"
 }
 
-# Ana fonksiyon
+# Основная функция
 main() {
     case "${1:-area}" in
         "area")
@@ -57,10 +57,10 @@ main() {
             screenshot_window
             ;;
         *)
-            echo "Kullanım: $0 [area|screen|window]"
-            echo "  area   - Alan seçimi (varsayılan)"
-            echo "  screen - Tüm ekran"
-            echo "  window - Aktif pencere"
+            echo "Использование: $0 [area|screen|window]"
+            echo "  area   - Выбор области (по умолчанию)"
+            echo "  screen - Весь экран"
+            echo "  window - Активное окно"
             exit 1
             ;;
     esac

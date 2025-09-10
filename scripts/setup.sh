@@ -197,16 +197,16 @@ enable_services() {
         sudo usermod -a -G libvirt $USER
     fi
     
-    print_success "Servisler etkinleştirildi!"
+    print_success "Сервисы включены!"
 }
 
-# Wallpaper indir
+# Скачать обои
 download_wallpapers() {
-    print_status "Wallpaper'lar indiriliyor..."
+    print_status "Скачивание обоев..."
     
     cd ~/Pictures/Wallpapers
     
-    # Örnek wallpaper'lar indir
+    # Скачать примеры обоев
     if [ ! -f default.jpg ]; then
         curl -L "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop" -o default.jpg
     fi
@@ -225,7 +225,7 @@ download_wallpapers() {
     
     cd - > /dev/null
     
-    print_success "Wallpaper'lar indirildi!"
+    print_success "Обои скачаны!"
 }
 
 # Основная функция установки
@@ -245,17 +245,17 @@ main() {
     
     echo
     echo "==========================================="
-    print_success "Kurulum tamamlandı!"
+    print_success "Установка завершена!"
     echo "==========================================="
     echo
-    echo "Sonraki adımlar:"
-    echo "1. Sistemi yeniden başlatın"
-    echo "2. Zsh'i varsayılan shell yapın: chsh -s /bin/zsh"
-    echo "3. Hyprland'i başlatın"
+    echo "Следующие шаги:"
+    echo "1. Перезагрузите систему"
+    echo "2. Сделайте Zsh оболочкой по умолчанию: chsh -s /bin/zsh"
+    echo "3. Запустите Hyprland"
     echo "4. Настройте P10k: p10k configure"
     echo
-    print_warning "Sistemi yeniden başlatmanız önerilir."
+    print_warning "Рекомендуется перезагрузить систему."
 }
 
-# Scripti çalıştır
+# Запустить скрипт
 main "$@"

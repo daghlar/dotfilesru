@@ -137,7 +137,7 @@ killp() {
     ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
-# Quick backup
+# Быстрое резервное копирование
 backup() {
     cp "$1" "$1.backup.$(date +%Y%m%d_%H%M%S)"
 }

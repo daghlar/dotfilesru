@@ -24,7 +24,7 @@ print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Tema uygulama fonksiyonu
+# Функция применения темы
 apply_theme() {
     local theme_name="$1"
     local theme_file="themes/${theme_name}.conf"
@@ -82,7 +82,7 @@ list_themes() {
     done
 }
 
-# Ana fonksiyon
+# Основная функция
 main() {
     case "${1:-help}" in
         "catppuccin"|"dracula"|"nord")
