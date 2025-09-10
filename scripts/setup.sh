@@ -97,26 +97,26 @@ install_dependencies() {
     done
     
     if [ ${#missing_packages[@]} -ne 0 ]; then
-        print_warning "Eksik paketler bulundu: ${missing_packages[*]}"
-        print_status "Paketler yükleniyor..."
+        print_warning "Найдены отсутствующие пакеты: ${missing_packages[*]}"
+        print_status "Установка пакетов..."
         sudo pacman -S --needed "${missing_packages[@]}"
     else
-        print_success "Tüm gerekli paketler yüklü!"
+        print_success "Все необходимые пакеты установлены!"
     fi
 }
 
-# Konfigürasyon dosyalarını kopyala
+# Копировать конфигурационные файлы
 install_configs() {
-    print_status "Konfigürasyon dosyaları kopyalanıyor..."
+    print_status "Копирование конфигурационных файлов..."
     
-    # Ana dizinleri oluştur
+    # Создать основные каталоги
     mkdir -p ~/.config/{hypr,waybar,rofi,kitty,swaylock,wlogout,wofi,gtk-3.0,gtk-4.0,fontconfig,hyprpaper,nvim}
     mkdir -p ~/.local/share/{fonts,applications}
     mkdir -p ~/Pictures/Wallpapers
     mkdir -p ~/.oh-my-zsh/custom/themes
     mkdir -p ~/.oh-my-zsh/custom/plugins
     
-    # Konfigürasyon dosyalarını kopyala
+    # Копировать конфигурационные файлы
     cp -r .config/* ~/.config/
     cp .bashrc ~/
     cp .zshrc ~/
@@ -124,11 +124,11 @@ install_configs() {
     cp .inputrc ~/
     cp .gitignore_global ~/
     
-    # Script dosyalarını kopyala
+    # Копировать скрипты
     cp scripts/* ~/.local/bin/
     chmod +x ~/.local/bin/*
     
-    print_success "Konfigürasyon dosyaları kopyalandı!"
+    print_success "Конфигурационные файлы скопированы!"
 }
 
 # Fontları yükle
