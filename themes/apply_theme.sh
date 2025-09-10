@@ -36,19 +36,19 @@ apply_theme() {
     
     print_status "Применение темы $theme_name..."
     
-    # Tema dosyasını kaynak olarak yükle
+    # Загрузить файл темы как источник
     source "$theme_file"
     
-    # Hyprland konfigürasyonunu güncelle
+    # Обновить конфигурацию Hyprland
     if [ -f ~/.config/hypr/hyprland.conf ]; then
-        # Mevcut konfigürasyonu yedekle
+        # Создать резервную копию текущей конфигурации
         cp ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.backup
         
-        # Renkleri güncelle
+        # Обновить цвета
         sed -i "s/col\.active_border = .*/col.active_border = $col_active_border/" ~/.config/hypr/hyprland.conf
         sed -i "s/col\.inactive_border = .*/col.inactive_border = $col_inactive_border/" ~/.config/hypr/hyprland.conf
         
-        print_success "Hyprland konfigürasyonu güncellendi!"
+        print_success "Конфигурация Hyprland обновлена!"
     fi
     
     # Waybar konfigürasyonunu güncelle
