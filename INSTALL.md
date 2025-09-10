@@ -1,28 +1,28 @@
-# 📋 Detaylı Kurulum Rehberi
+# 📋 Подробное руководство по установке
 
-Bu rehber, Hyprland Professional Dotfiles'ı sisteminize kurmanız için adım adım talimatlar içerir.
+Это руководство содержит пошаговые инструкции для установки профессиональных Dotfiles для Hyprland на вашу систему.
 
-## 🔍 Sistem Gereksinimleri
+## 🔍 Системные требования
 
-### Minimum Gereksinimler
-- **İşlemci**: x86_64 mimarisi
-- **RAM**: En az 4GB (8GB önerilir)
-- **Depolama**: En az 10GB boş alan
-- **Grafik**: Wayland destekleyen GPU
+### Минимальные требования
+- **Процессор**: архитектура x86_64
+- **ОЗУ**: минимум 4GB (рекомендуется 8GB)
+- **Хранилище**: минимум 10GB свободного места
+- **Графика**: GPU с поддержкой Wayland
 
-### Desteklenen Dağıtımlar
+### Поддерживаемые дистрибутивы
 - ✅ Arch Linux
 - ✅ Manjaro
 - ✅ EndeavourOS
-- ⚠️ Ubuntu (manuel kurulum gerekli)
-- ⚠️ Fedora (manuel kurulum gerekli)
+- ⚠️ Ubuntu (требуется ручная установка)
+- ⚠️ Fedora (требуется ручная установка)
 
-## 📦 Paket Kurulumu
+## 📦 Установка пакетов
 
-### 1. Temel Paketler
+### 1. Базовые пакеты
 
 ```bash
-# AUR helper'ı yükleyin (yay önerilir)
+# Установите AUR helper (рекомендуется yay)
 sudo pacman -S --needed base-devel git
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
@@ -30,249 +30,249 @@ cd yay
 makepkg -si
 ```
 
-### 2. Hyprland ve Bağımlılıkları
+### 2. Hyprland и зависимости
 
 ```bash
-# Ana paketler
+# Основные пакеты
 sudo pacman -S hyprland waybar rofi kitty swaylock grimblast wl-clipboard hyprpaper polkit-gnome brightnessctl pavucontrol thunar
 
-# AUR paketleri
+# AUR пакеты
 yay -S grimblast-git
 ```
 
-### 3. Ek Paketler (İsteğe Bağlı)
+### 3. Дополнительные пакеты (опционально)
 
 ```bash
-# Medya oynatıcılar
+# Медиа-плееры
 sudo pacman -S mpv vlc
 
-# Geliştirme araçları
+# Инструменты разработки
 sudo pacman -S code firefox chromium
 
-# Fontlar
+# Шрифты
 sudo pacman -S ttf-jetbrains-mono ttf-font-awesome papirus-icon-theme
 
-# Ek araçlar
+# Дополнительные инструменты
 sudo pacman -S neofetch htop btop
 ```
 
-## 🚀 Kurulum Adımları
+## 🚀 Шаги установки
 
-### 1. Repository'yi İndirin
+### 1. Скачайте репозиторий
 
 ```bash
-# Git ile klonlayın
-git clone https://github.com/kullanici/hyprland-dotfiles.git ~/dotfiles
+# Клонируйте через Git
+git clone https://github.com/daghlar/dotfilesru.git ~/dotfiles
 cd ~/dotfiles
 
-# Veya manuel olarak indirin
-wget https://github.com/kullanici/hyprland-dotfiles/archive/main.zip
+# Или скачайте вручную
+wget https://github.com/daghlar/dotfilesru/archive/main.zip
 unzip main.zip
-cd hyprland-dotfiles-main
+cd dotfilesru-main
 ```
 
-### 2. Otomatik Kurulum
+### 2. Автоматическая установка
 
 ```bash
-# Kurulum scriptini çalıştırın
-./scripts/install.sh
+# Запустите скрипт установки
+./scripts/setup.sh
 ```
 
-### 3. Manuel Kurulum
+### 3. Ручная установка
 
-Eğer otomatik kurulum çalışmazsa:
+Если автоматическая установка не работает:
 
 ```bash
-# Konfigürasyon dizinlerini oluşturun
+# Создайте конфигурационные каталоги
 mkdir -p ~/.config/{hypr,waybar,rofi,kitty,swaylock,wofi,gtk-3.0,gtk-4.0}
 
-# Konfigürasyon dosyalarını kopyalayın
+# Скопируйте конфигурационные файлы
 cp -r .config/* ~/.config/
 
-# Script dosyalarını kopyalayın
+# Скопируйте скрипты
 mkdir -p ~/.local/bin
 cp scripts/* ~/.local/bin/
 chmod +x ~/.local/bin/*
 
-# Wallpaper dizini oluşturun
+# Создайте каталог для обоев
 mkdir -p ~/Pictures/Wallpapers
 ```
 
-## ⚙️ Sistem Ayarları
+## ⚙️ Системные настройки
 
-### 1. Display Manager Ayarları
+### 1. Настройки дисплей-менеджера
 
-#### SDDM için:
+#### Для SDDM:
 ```bash
-# SDDM'i yükleyin
+# Установите SDDM
 sudo pacman -S sddm
 
-# Hyprland'i varsayılan session yapın
+# Сделайте Hyprland сессией по умолчанию
 echo "[Desktop Entry]
 Name=Hyprland
 Comment=Hyprland Wayland Compositor
 Exec=Hyprland
 Type=Application" | sudo tee /usr/share/xsessions/hyprland.desktop
 
-# SDDM'i etkinleştirin
+# Включите SDDM
 sudo systemctl enable sddm
 ```
 
-#### GDM için:
+#### Для GDM:
 ```bash
-# GDM'i yükleyin
+# Установите GDM
 sudo pacman -S gdm
 
-# GDM'i etkinleştirin
+# Включите GDM
 sudo systemctl enable gdm
 ```
 
-### 2. Polkit Ayarları
+### 2. Настройки Polkit
 
 ```bash
-# Polkit agent'ı etkinleştirin
+# Включите Polkit agent
 echo "exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" >> ~/.config/hypr/hyprland.conf
 ```
 
-### 3. Font Ayarları
+### 3. Настройки шрифтов
 
 ```bash
-# Font cache'i yenileyin
+# Обновите кэш шрифтов
 fc-cache -fv
 
-# Font'ları test edin
+# Проверьте шрифты
 fc-list | grep -i jetbrains
 ```
 
-## 🎨 Tema Kurulumu
+## 🎨 Установка тем
 
-### 1. Tema Uygulama
+### 1. Применение темы
 
 ```bash
-# Catppuccin temasını uygula
+# Применить тему Catppuccin
 ./themes/apply_theme.sh catppuccin
 
-# Dracula temasını uygula
+# Применить тему Dracula
 ./themes/apply_theme.sh dracula
 
-# Nord temasını uygula
+# Применить тему Nord
 ./themes/apply_theme.sh nord
 ```
 
-### 2. Özel Tema Oluşturma
+### 2. Создание пользовательской темы
 
 ```bash
-# Tema dosyası oluşturun
+# Создайте файл темы
 cp themes/catppuccin.conf themes/my_theme.conf
 
-# Tema dosyasını düzenleyin
+# Отредактируйте файл темы
 nano themes/my_theme.conf
 
-# Tema uygulayın
+# Примените тему
 ./themes/apply_theme.sh my_theme
 ```
 
-## 🔧 Sorun Giderme
+## 🔧 Устранение неполадок
 
-### Yaygın Sorunlar
+### Частые проблемы
 
-#### 1. Hyprland Başlamıyor
+#### 1. Hyprland не запускается
 
 ```bash
-# Logları kontrol edin
+# Проверьте логи
 journalctl -u Hyprland
 
-# Konfigürasyonu test edin
+# Протестируйте конфигурацию
 hyprctl reload
 ```
 
-#### 2. Waybar Görünmüyor
+#### 2. Waybar не отображается
 
 ```bash
-# Waybar'ı manuel başlatın
+# Запустите Waybar вручную
 waybar &
 
-# Logları kontrol edin
+# Проверьте логи
 waybar --log-level debug
 ```
 
-#### 3. Rofi Çalışmıyor
+#### 3. Rofi не работает
 
 ```bash
-# Rofi'yi test edin
+# Протестируйте Rofi
 rofi -show drun
 
-# Konfigürasyonu kontrol edin
+# Проверьте конфигурацию
 rofi -dump-config
 ```
 
-#### 4. Screenshot Çalışmıyor
+#### 4. Скриншоты не работают
 
 ```bash
-# Grimblast'i test edin
+# Протестируйте Grimblast
 grimblast copy area
 
-# Gerekli paketleri yükleyin
+# Установите необходимые пакеты
 sudo pacman -S grimblast
 ```
 
-### Log Dosyaları
+### Файлы логов
 
 ```bash
-# Hyprland logları
+# Логи Hyprland
 journalctl -u Hyprland -f
 
-# Waybar logları
+# Логи Waybar
 waybar --log-level debug
 
-# Sistem logları
+# Системные логи
 journalctl -f
 ```
 
-## 🚀 İlk Başlatma
+## 🚀 Первый запуск
 
-### 1. Hyprland'i Başlatın
+### 1. Запустите Hyprland
 
 ```bash
-# Display manager ile
-# Sistemi yeniden başlatın veya logout yapın
+# Через дисплей-менеджер
+# Перезагрузите систему или выйдите из сессии
 
-# Manuel başlatma
+# Ручной запуск
 Hyprland
 ```
 
-### 2. Temel Testler
+### 2. Базовые тесты
 
 ```bash
-# Terminal açın (Super + Q)
-# Rofi'yi açın (Super + R)
-# Pencere yönetimini test edin
-# Screenshot alın (Super + Print)
+# Откройте терминал (Super + Q)
+# Откройте Rofi (Super + R)
+# Протестируйте управление окнами
+# Сделайте скриншот (Super + Print)
 ```
 
-### 3. Performans Ayarları
+### 3. Настройки производительности
 
 ```bash
-# GPU ayarları
-nvidia-settings  # NVIDIA için
-# veya
-intel_gpu_top    # Intel için
+# Настройки GPU
+nvidia-settings  # для NVIDIA
+# или
+intel_gpu_top    # для Intel
 
-# Bellek kullanımı
+# Использование памяти
 htop
 ```
 
-## 📱 Mobil Cihazlar
+## 📱 Мобильные устройства
 
-### Tablet Desteği
+### Поддержка планшетов
 
 ```bash
-# Tablet paketleri
+# Пакеты для планшетов
 sudo pacman -S xf86-input-wacom
 
-# Konfigürasyon
+# Конфигурация
 cat > ~/.config/hypr/tablet.conf << EOF
-# Tablet ayarları
+# Настройки планшета
 input {
     tablet {
         output = DP-1
@@ -283,63 +283,63 @@ input {
 EOF
 ```
 
-## 🔒 Güvenlik
+## 🔒 Безопасность
 
-### 1. Ekran Kilidi
+### 1. Блокировка экрана
 
 ```bash
-# Swaylock'u test edin
+# Протестируйте Swaylock
 swaylock
 
-# Otomatik kilit ayarları
+# Автоматические настройки блокировки
 swayidle -w timeout 300 'swaylock' timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 ```
 
-### 2. Firewall
+### 2. Файрвол
 
 ```bash
-# UFW'yi yükleyin
+# Установите UFW
 sudo pacman -S ufw
 
-# Firewall'u etkinleştirin
+# Включите файрвол
 sudo ufw enable
 ```
 
-## 📊 Performans Optimizasyonu
+## 📊 Оптимизация производительности
 
-### 1. GPU Ayarları
+### 1. Настройки GPU
 
 ```bash
-# NVIDIA için
+# Для NVIDIA
 nvidia-settings
 
-# Intel için
+# Для Intel
 sudo pacman -S intel-gpu-tools
 ```
 
-### 2. Bellek Optimizasyonu
+### 2. Оптимизация памяти
 
 ```bash
-# Swap ayarları
+# Настройки swap
 sudo swapon --show
 
-# Bellek kullanımı
+# Использование памяти
 free -h
 ```
 
-## 🎯 Sonraki Adımlar
+## 🎯 Следующие шаги
 
-1. **Özelleştirme**: Konfigürasyon dosyalarını ihtiyaçlarınıza göre düzenleyin
-2. **Eklentiler**: Ek uygulamalar ve eklentiler yükleyin
-3. **Backup**: Konfigürasyonlarınızı yedekleyin
-4. **Güncelleme**: Düzenli olarak güncellemeleri kontrol edin
+1. **Настройка**: Отредактируйте конфигурационные файлы под ваши нужды
+2. **Расширения**: Установите дополнительные приложения и расширения
+3. **Резервное копирование**: Создайте резервные копии ваших конфигураций
+4. **Обновления**: Регулярно проверяйте обновления
 
-## 📞 Yardım
+## 📞 Помощь
 
-- **GitHub Issues**: Sorunlarınızı bildirin
-- **Discord**: Topluluk desteği
-- **Wiki**: Detaylı dokümantasyon
+- **GitHub Issues**: Сообщите о проблемах
+- **Discord**: Поддержка сообщества
+- **Wiki**: Подробная документация
 
 ---
 
-**Not**: Bu rehber sürekli güncellenmektedir. En güncel bilgiler için GitHub repository'sini kontrol edin.
+**Примечание**: Это руководство постоянно обновляется. Для получения самой актуальной информации проверьте GitHub репозиторий.

@@ -1,27 +1,27 @@
-# 🚀 Hyprland Professional Dotfiles
+# 🚀 Профессиональные Dotfiles для Hyprland
 
-Bu repository, Arch Linux için optimize edilmiş profesyonel Hyprland dotfiles konfigürasyonunu içerir. Modern, hızlı ve özelleştirilebilir bir Wayland compositor deneyimi sunar.
+Этот репозиторий содержит оптимизированную профессиональную конфигурацию Hyprland dotfiles для Arch Linux. Предоставляет современный, быстрый и настраиваемый опыт работы с Wayland композитором.
 
-## ✨ Özellikler
+## ✨ Особенности
 
-- **Modern Hyprland Konfigürasyonu**: Optimize edilmiş performans ve güzel animasyonlar
-- **Profesyonel Waybar**: Sistem bilgileri, çalışma alanları ve medya kontrolleri
-- **Rofi Launcher**: Hızlı uygulama başlatma ve pencere değiştirme
-- **Kitty Terminal**: Hızlı ve özelleştirilebilir terminal emülatörü
-- **Neovim Konfigürasyonu**: Modern vim editörü ile LSP desteği
-- **Zsh + Oh My Zsh**: Güçlü shell deneyimi ve eklentiler
-- **Swaylock + Wlogout**: Güvenli ekran kilidi ve logout menüsü
-- **Hyprpaper**: Wallpaper yöneticisi
-- **GTK Tema Desteği**: Catppuccin tema entegrasyonu
-- **Font Optimizasyonu**: JetBrains Mono ve Nerd Fonts
-- **Çoklu Tema Desteği**: Catppuccin, Dracula ve Nord temaları
-- **Kapsamlı Kurulum**: Tek komutla tam kurulum
-- **Screenshot Araçları**: Kolay ekran görüntüsü alma
-- **Türkçe Klavye Desteği**: Tam Türkçe klavye konfigürasyonu
+- **Современная конфигурация Hyprland**: Оптимизированная производительность и красивые анимации
+- **Профессиональный Waybar**: Системная информация, рабочие пространства и медиа-контролы
+- **Rofi Launcher**: Быстрый запуск приложений и переключение окон
+- **Kitty Terminal**: Быстрый и настраиваемый терминальный эмулятор
+- **Конфигурация Neovim**: Современный редактор с поддержкой LSP
+- **Zsh + Oh My Zsh**: Мощный опыт работы с оболочкой и плагинами
+- **Swaylock + Wlogout**: Безопасная блокировка экрана и меню выхода
+- **Hyprpaper**: Менеджер обоев
+- **Поддержка GTK тем**: Интеграция с темой Catppuccin
+- **Оптимизация шрифтов**: JetBrains Mono и Nerd Fonts
+- **Поддержка множественных тем**: Catppuccin, Dracula и Nord
+- **Комплексная установка**: Полная установка одной командой
+- **Инструменты скриншотов**: Простое создание скриншотов
+- **Поддержка русской раскладки**: Полная конфигурация русской клавиатуры
 
-## 🛠️ Gereksinimler
+## 🛠️ Требования
 
-- Arch Linux (veya Arch tabanlı dağıtımlar)
+- Arch Linux (или Arch-основанные дистрибутивы)
 - Hyprland
 - Waybar
 - Rofi
@@ -35,129 +35,129 @@ Bu repository, Arch Linux için optimize edilmiş profesyonel Hyprland dotfiles 
 - pavucontrol
 - thunar
 
-## 📦 Kurulum
+## 📦 Установка
 
-### Otomatik Kurulum
+### Автоматическая установка
 
 ```bash
-# Repository'yi klonlayın
-git clone https://github.com/daghlar/dotfilestr.git
-cd dotfilestr
+# Клонируйте репозиторий
+git clone https://github.com/daghlar/dotfilesru.git
+cd dotfilesru
 
-# Kapsamlı kurulum scriptini çalıştırın
+# Запустите комплексный скрипт установки
 ./scripts/setup.sh
 
-# Veya hızlı kurulum için
+# Или для быстрой установки
 ./scripts/install.sh
 ```
 
-### Manuel Kurulum
+### Ручная установка
 
 ```bash
-# Gerekli paketleri yükleyin
+# Установите необходимые пакеты
 sudo pacman -S hyprland waybar rofi kitty swaylock grimblast wl-clipboard hyprpaper polkit-gnome brightnessctl pavucontrol thunar
 
-# Konfigürasyon dosyalarını kopyalayın
+# Скопируйте конфигурационные файлы
 cp -r .config/* ~/.config/
 cp scripts/* ~/.local/bin/
 chmod +x ~/.local/bin/*
 
-# Hyprland'i başlatın
+# Запустите Hyprland
 Hyprland
 ```
 
-## 🎨 Temalar
+## 🎨 Темы
 
-### Mevcut Temalar
+### Доступные темы
 
-- **Catppuccin**: Pastel renkler ve modern görünüm
-- **Dracula**: Koyu tema ve canlı renkler
-- **Nord**: Minimalist ve profesyonel görünüm
+- **Catppuccin**: Пастельные цвета и современный вид
+- **Dracula**: Темная тема с яркими цветами
+- **Nord**: Минималистичный и профессиональный вид
 
-### Tema Uygulama
+### Применение темы
 
 ```bash
-# Tema uygula
+# Применить тему
 ./themes/apply_theme.sh catppuccin
 ./themes/apply_theme.sh dracula
 ./themes/apply_theme.sh nord
 
-# Mevcut temaları listele
+# Показать доступные темы
 ./themes/apply_theme.sh list
 ```
 
-## ⌨️ Klavye Kısayolları
+## ⌨️ Горячие клавиши
 
-### Temel Kısayollar
+### Основные сочетания
 
-| Kısayol | Açıklama |
-|---------|----------|
-| `Super + Q` | Terminal aç |
-| `Super + C` | Aktif pencereyi kapat |
-| `Super + M` | Hyprland'den çık |
-| `Super + E` | Dosya yöneticisi aç |
-| `Super + V` | Pencereyi yüzdür |
-| `Super + R` | Rofi launcher aç |
-| `Super + L` | Ekranı kilitle |
+| Сочетание | Описание |
+|-----------|----------|
+| `Super + Q` | Открыть терминал |
+| `Super + C` | Закрыть активное окно |
+| `Super + M` | Выйти из Hyprland |
+| `Super + E` | Открыть файловый менеджер |
+| `Super + V` | Переключить плавающее окно |
+| `Super + R` | Открыть Rofi launcher |
+| `Super + L` | Заблокировать экран |
 
-### Pencere Yönetimi
+### Управление окнами
 
-| Kısayol | Açıklama |
-|---------|----------|
-| `Super + ←/→/↑/↓` | Pencere odağını değiştir |
-| `Super + Shift + ←/→/↑/↓` | Pencereyi taşı |
-| `Super + Ctrl + ←/→/↑/↓` | Pencere boyutunu değiştir |
-| `Super + F` | Tam ekran |
-| `Super + Shift + F` | Pencereyi yüzdür |
+| Сочетание | Описание |
+|-----------|----------|
+| `Super + ←/→/↑/↓` | Переместить фокус окна |
+| `Super + Shift + ←/→/↑/↓` | Переместить окно |
+| `Super + Ctrl + ←/→/↑/↓` | Изменить размер окна |
+| `Super + F` | Полноэкранный режим |
+| `Super + Shift + F` | Переключить плавающее окно |
 
-### Çalışma Alanları
+### Рабочие пространства
 
-| Kısayol | Açıklama |
-|---------|----------|
-| `Super + 1-10` | Çalışma alanına geç |
-| `Super + Shift + 1-10` | Pencereyi çalışma alanına taşı |
-| `Super + S` | Özel çalışma alanını aç/kapat |
+| Сочетание | Описание |
+|-----------|----------|
+| `Super + 1-10` | Переключиться на рабочее пространство |
+| `Super + Shift + 1-10` | Переместить окно на рабочее пространство |
+| `Super + S` | Переключить специальное рабочее пространство |
 
-### Medya Kontrolleri
+### Медиа-контролы
 
-| Kısayol | Açıklama |
-|---------|----------|
-| `XF86AudioRaiseVolume` | Ses seviyesini artır |
-| `XF86AudioLowerVolume` | Ses seviyesini azalt |
-| `XF86AudioMute` | Sesi aç/kapat |
-| `XF86MonBrightnessUp` | Parlaklığı artır |
-| `XF86MonBrightnessDown` | Parlaklığı azalt |
+| Сочетание | Описание |
+|-----------|----------|
+| `XF86AudioRaiseVolume` | Увеличить громкость |
+| `XF86AudioLowerVolume` | Уменьшить громкость |
+| `XF86AudioMute` | Включить/выключить звук |
+| `XF86MonBrightnessUp` | Увеличить яркость |
+| `XF86MonBrightnessDown` | Уменьшить яркость |
 
-### Screenshot
+### Скриншоты
 
-| Kısayol | Açıklama |
-|---------|----------|
-| `Super + Print` | Alan seçimi ile screenshot |
-| `Super + Shift + Print` | Tüm ekran screenshot |
-| `Super + Ctrl + Print` | Screenshot'u kaydet |
+| Сочетание | Описание |
+|-----------|----------|
+| `Super + Print` | Скриншот области |
+| `Super + Shift + Print` | Скриншот всего экрана |
+| `Super + Ctrl + Print` | Сохранить скриншот |
 
-## 🔧 Konfigürasyon
+## 🔧 Конфигурация
 
-### Ana Konfigürasyon Dosyaları
+### Основные конфигурационные файлы
 
-- `~/.config/hypr/hyprland.conf` - Ana Hyprland konfigürasyonu
-- `~/.config/waybar/config` - Waybar konfigürasyonu
-- `~/.config/waybar/style.css` - Waybar stilleri
-- `~/.config/rofi/config.rasi` - Rofi konfigürasyonu
-- `~/.config/kitty/kitty.conf` - Kitty terminal konfigürasyonu
+- `~/.config/hypr/hyprland.conf` - Основная конфигурация Hyprland
+- `~/.config/waybar/config` - Конфигурация Waybar
+- `~/.config/waybar/style.css` - Стили Waybar
+- `~/.config/rofi/config.rasi` - Конфигурация Rofi
+- `~/.config/kitty/kitty.conf` - Конфигурация Kitty терминала
 
-### Özelleştirme
+### Настройка
 
-Konfigürasyon dosyalarını düzenleyerek:
-- Renk şemalarını değiştirebilirsiniz
-- Klavye kısayollarını özelleştirebilirsiniz
-- Pencere kurallarını ayarlayabilirsiniz
-- Animasyonları değiştirebilirsiniz
+Редактируя конфигурационные файлы, вы можете:
+- Изменить цветовые схемы
+- Настроить горячие клавиши
+- Настроить правила окон
+- Изменить анимации
 
-## 📁 Dizin Yapısı
+## 📁 Структура каталогов
 
 ```
-dotfilestr/
+dotfilesru/
 ├── .config/
 │   ├── hypr/
 │   │   └── hyprland.conf
@@ -203,70 +203,70 @@ dotfilestr/
 └── SUMMARY.md
 ```
 
-## 🚀 Güncelleme
+## 🚀 Обновление
 
 ```bash
-# Konfigürasyonları güncelle
+# Обновить конфигурации
 ./scripts/update.sh
 ```
 
-## 🐛 Sorun Giderme
+## 🐛 Устранение неполадок
 
-### Yaygın Sorunlar
+### Частые проблемы
 
-1. **Waybar görünmüyor**
+1. **Waybar не отображается**
    ```bash
    pkill waybar && waybar &
    ```
 
-2. **Rofi açılmıyor**
+2. **Rofi не открывается**
    ```bash
    rofi -show drun
    ```
 
-3. **Screenshot çalışmıyor**
+3. **Скриншоты не работают**
    ```bash
    sudo pacman -S grimblast
    ```
 
-4. **Ses kontrolleri çalışmıyor**
+4. **Контролы звука не работают**
    ```bash
    sudo pacman -S pavucontrol
    ```
 
-### Log Dosyaları
+### Файлы логов
 
 ```bash
-# Hyprland logları
+# Логи Hyprland
 journalctl -u Hyprland
 
-# Waybar logları
+# Логи Waybar
 waybar --log-level debug
 ```
 
-## 🤝 Katkıda Bulunma
+## 🤝 Вклад в проект
 
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit yapın (`git commit -m 'Add amazing feature'`)
-4. Push yapın (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. Сделайте форк
+2. Создайте ветку функции (`git checkout -b feature/amazing-feature`)
+3. Сделайте коммит (`git commit -m 'Add amazing feature'`)
+4. Отправьте изменения (`git push origin feature/amazing-feature`)
+5. Создайте Pull Request
 
-## 📄 Lisans
+## 📄 Лицензия
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+Этот проект лицензирован под лицензией MIT. Подробности см. в файле `LICENSE`.
 
-## 🙏 Teşekkürler
+## 🙏 Благодарности
 
-- [Hyprland](https://hyprland.org/) - Wayland compositor
-- [Waybar](https://github.com/Alexays/Waybar) - Status bar
-- [Rofi](https://github.com/davatorium/rofi) - Application launcher
-- [Kitty](https://sw.kovidgoyal.net/kitty/) - Terminal emulator
+- [Hyprland](https://hyprland.org/) - Wayland композитор
+- [Waybar](https://github.com/Alexays/Waybar) - Панель состояния
+- [Rofi](https://github.com/davatorium/rofi) - Запускатель приложений
+- [Kitty](https://sw.kovidgoyal.net/kitty/) - Терминальный эмулятор
 
-## 📞 İletişim
+## 📞 Контакты
 
-Sorularınız için issue açabilir veya pull request gönderebilirsiniz.
+Для вопросов создайте issue или отправьте pull request.
 
 ---
 
-**Not**: Bu konfigürasyon Arch Linux için optimize edilmiştir. Diğer dağıtımlarda bazı ayarlar farklı olabilir.
+**Примечание**: Эта конфигурация оптимизирована для Arch Linux. В других дистрибутивах некоторые настройки могут отличаться.

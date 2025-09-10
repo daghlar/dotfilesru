@@ -1,20 +1,20 @@
 #!/bin/bash
 # ===========================================
-# HYPRLAND DOTFILES INSTALLATION SCRIPT
+# СКРИПТ УСТАНОВКИ HYPRLAND DOTFILES
 # ===========================================
 
 set -e
 
-echo "🚀 Hyprland Dotfiles Kurulumu Başlatılıyor..."
+echo "🚀 Запуск установки Hyprland Dotfiles..."
 
-# Renk kodları
+# Цветовые коды
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Fonksiyonlar
+# Функции
 print_status() {
     echo -e "${BLUE}[INFO]${NC} $1"
 }
@@ -31,9 +31,9 @@ print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Gerekli paketleri kontrol et
+# Проверить необходимые пакеты
 check_dependencies() {
-    print_status "Gerekli paketler kontrol ediliyor..."
+    print_status "Проверка необходимых пакетов..."
     
     local packages=(
         "hyprland"
@@ -59,11 +59,11 @@ check_dependencies() {
     done
     
     if [ ${#missing_packages[@]} -ne 0 ]; then
-        print_warning "Eksik paketler bulundu: ${missing_packages[*]}"
-        print_status "Paketler yükleniyor..."
+        print_warning "Найдены отсутствующие пакеты: ${missing_packages[*]}"
+        print_status "Установка пакетов..."
         sudo pacman -S --needed "${missing_packages[@]}"
     else
-        print_success "Tüm gerekli paketler yüklü!"
+        print_success "Все необходимые пакеты установлены!"
     fi
 }
 

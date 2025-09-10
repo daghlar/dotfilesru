@@ -1,110 +1,127 @@
-# 🎯 Hyprland Professional Dotfiles - Özet
+# 🎯 Профессиональные Dotfiles для Hyprland - Резюме
 
-## ✅ Tamamlanan Görevler
+## ✅ Выполненные задачи
 
-### 1. ✅ Sistem Analizi
-- Arch Linux 6.16.5-arch1-1 sistemi tespit edildi
-- Hyprland ve Waybar zaten yüklü olduğu doğrulandı
-- Gerekli paketler belirlendi
+### 1. ✅ Анализ системы
+- Обнаружена система Arch Linux 6.16.5-arch1-1
+- Подтверждена установка Hyprland и Waybar
+- Определены необходимые пакеты
 
-### 2. ✅ Hyprland Konfigürasyonu
-- **Dosya**: `.config/hypr/hyprland.conf`
-- **Özellikler**:
-  - Türkçe klavye desteği
-  - Çoklu monitör desteği
-  - Modern animasyonlar ve efektler
-  - Kapsamlı klavye kısayolları
-  - Pencere kuralları ve çalışma alanları
-  - Otomatik başlatma ayarları
+### 2. ✅ Конфигурация Hyprland
+- **Файл**: `.config/hypr/hyprland.conf`
+- **Особенности**:
+  - Поддержка русской раскладки клавиатуры
+  - Поддержка нескольких мониторов
+  - Современные анимации и эффекты
+  - Обширные горячие клавиши
+  - Правила окон и рабочие пространства
+  - Настройки автозапуска
 
-### 3. ✅ Waybar Konfigürasyonu
-- **Dosyalar**: `.config/waybar/config` ve `.config/waybar/style.css`
-- **Özellikler**:
-  - Modern ve profesyonel görünüm
-  - Sistem bilgileri (CPU, RAM, sıcaklık)
-  - Medya kontrolleri
-  - Ağ durumu
-  - Pil durumu
-  - Çalışma alanları
+### 3. ✅ Конфигурация Waybar
+- **Файлы**: `.config/waybar/config` и `.config/waybar/style.css`
+- **Особенности**:
+  - Современный и профессиональный вид
+  - Системная информация (CPU, RAM, температура)
+  - Медиа-контролы
+  - Статус сети
+  - Статус батареи
+  - Рабочие пространства
 
-### 4. ✅ Rofi Konfigürasyonu
-- **Dosya**: `.config/rofi/config.rasi`
-- **Özellikler**:
-  - Modern tema ve renkler
-  - Uygulama launcher
-  - Pencere switcher
-  - SSH bağlantıları
-  - Özelleştirilebilir kısayollar
+### 4. ✅ Конфигурация Rofi
+- **Файл**: `.config/rofi/config.rasi`
+- **Особенности**:
+  - Современная тема и цвета
+  - Запускатель приложений
+  - Переключатель окон
+  - SSH-соединения
+  - Настраиваемые горячие клавиши
 
 ### 5. ✅ Kitty Terminal
-- **Dosya**: `.config/kitty/kitty.conf`
-- **Özellikler**:
-  - JetBrains Mono font
-  - Catppuccin renk şeması
-  - Modern görünüm
-  - Performans optimizasyonları
+- **Файл**: `.config/kitty/kitty.conf`
+- **Особенности**:
+  - Шрифт JetBrains Mono
+  - Цветовая схема Catppuccin
+  - Современный вид
+  - Оптимизация производительности
 
-### 6. ✅ Yardımcı Scriptler
-- **`scripts/install.sh`**: Otomatik kurulum scripti
-- **`scripts/update.sh`**: Konfigürasyon güncelleme scripti
-- **`scripts/screenshot.sh`**: Screenshot alma scripti
+### 6. ✅ Вспомогательные скрипты
+- **`scripts/install.sh`**: Скрипт автоматической установки
+- **`scripts/update.sh`**: Скрипт обновления конфигурации
+- **`scripts/screenshot.sh`**: Скрипт создания скриншотов
+- **`scripts/setup.sh`**: Комплексный скрипт установки
 
-### 7. ✅ Tema Sistemi
-- **Temalar**:
-  - Catppuccin (varsayılan)
+### 7. ✅ Система тем
+- **Темы**:
+  - Catppuccin (по умолчанию)
   - Dracula
   - Nord
-- **`themes/apply_theme.sh`**: Tema uygulama scripti
+- **`themes/apply_theme.sh`**: Скрипт применения тем
 
-### 8. ✅ Dokümantasyon
-- **`README.md`**: Ana dokümantasyon
-- **`INSTALL.md`**: Detaylı kurulum rehberi
-- **`SUMMARY.md`**: Bu özet dosyası
+### 8. ✅ Документация
+- **`README.md`**: Основная документация
+- **`INSTALL.md`**: Подробное руководство по установке
+- **`SUMMARY.md`**: Этот файл резюме
 
-## 🚀 Kurulum Komutları
+### 9. ✅ Дополнительные конфигурации
+- **Shell конфигурации**: `.bashrc`, `.zshrc`
+- **Git конфигурация**: `.gitconfig`, `.gitignore_global`
+- **Neovim**: Современная конфигурация редактора
+- **Безопасность**: Swaylock, Wlogout
+- **Визуальные улучшения**: Hyprpaper, GTK темы
+- **Шрифты**: Fontconfig оптимизация
+
+## 🚀 Команды установки
 
 ```bash
-# Otomatik kurulum
-./scripts/install.sh
+# Автоматическая установка
+./scripts/setup.sh
 
-# Manuel kurulum
+# Ручная установка
 cp -r .config/* ~/.config/
 cp scripts/* ~/.local/bin/
 chmod +x ~/.local/bin/*
 
-# Tema uygulama
+# Применение темы
 ./themes/apply_theme.sh catppuccin
 ```
 
-## 🎨 Özellikler
+## 🎨 Особенности
 
-### Klavye Kısayolları
-- `Super + Q`: Terminal aç
+### Горячие клавиши
+- `Super + Q`: Открыть терминал
 - `Super + R`: Rofi launcher
-- `Super + L`: Ekranı kilitle
-- `Super + Print`: Screenshot al
-- `Super + 1-10`: Çalışma alanları
+- `Super + L`: Заблокировать экран
+- `Super + Print`: Создать скриншот
+- `Super + 1-10`: Рабочие пространства
 
-### Tema Sistemi
-- 3 farklı tema (Catppuccin, Dracula, Nord)
-- Kolay tema değiştirme
-- Otomatik renk uyumluluğu
+### Система тем
+- 3 различные темы (Catppuccin, Dracula, Nord)
+- Простое переключение тем
+- Автоматическая совместимость цветов
 
-### Performans
-- Optimize edilmiş animasyonlar
-- Düşük kaynak kullanımı
-- Hızlı başlatma süreleri
+### Производительность
+- Оптимизированные анимации
+- Низкое потребление ресурсов
+- Быстрое время запуска
 
-## 📁 Dizin Yapısı
+## 📁 Структура каталогов
 
 ```
-dotfiles/
+dotfilesru/
 ├── .config/
 │   ├── hypr/hyprland.conf
 │   ├── waybar/{config,style.css}
 │   ├── rofi/config.rasi
-│   └── kitty/kitty.conf
+│   ├── kitty/kitty.conf
+│   ├── nvim/init.lua
+│   ├── swaylock/config
+│   ├── wlogout/{layout,style.css}
+│   ├── hyprpaper/hyprpaper.conf
+│   ├── gtk-3.0/settings.ini
+│   ├── gtk-4.0/settings.ini
+│   └── fontconfig/fonts.conf
 ├── scripts/
+│   ├── setup.sh
 │   ├── install.sh
 │   ├── update.sh
 │   └── screenshot.sh
@@ -113,24 +130,29 @@ dotfiles/
 │   ├── dracula.conf
 │   ├── nord.conf
 │   └── apply_theme.sh
+├── .bashrc
+├── .zshrc
+├── .gitconfig
+├── .inputrc
+├── .gitignore_global
 ├── README.md
 ├── INSTALL.md
 └── SUMMARY.md
 ```
 
-## 🎯 Sonraki Adımlar
+## 🎯 Следующие шаги
 
-1. **Test**: Konfigürasyonu test edin
-2. **Özelleştirme**: İhtiyaçlarınıza göre ayarlayın
-3. **Backup**: Konfigürasyonları yedekleyin
-4. **Güncelleme**: Düzenli güncellemeleri takip edin
+1. **Тестирование**: Протестируйте конфигурацию
+2. **Настройка**: Настройте под ваши нужды
+3. **Резервное копирование**: Создайте резервные копии конфигураций
+4. **Обновления**: Следите за регулярными обновлениями
 
-## 🔧 Sorun Giderme
+## 🔧 Устранение неполадок
 
-- **Waybar görünmüyor**: `pkill waybar && waybar &`
-- **Rofi açılmıyor**: `rofi -show drun`
-- **Screenshot çalışmıyor**: `sudo pacman -S grimblast`
+- **Waybar не отображается**: `pkill waybar && waybar &`
+- **Rofi не открывается**: `rofi -show drun`
+- **Скриншоты не работают**: `sudo pacman -S grimblast`
 
 ---
 
-**🎉 Profesyonel Hyprland dotfiles konfigürasyonu başarıyla tamamlandı!**
+**🎉 Профессиональная конфигурация Hyprland dotfiles успешно завершена!**
