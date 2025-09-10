@@ -131,9 +131,9 @@ install_configs() {
     print_success "Конфигурационные файлы скопированы!"
 }
 
-# Fontları yükle
+# Установить шрифты
 install_fonts() {
-    print_status "Fontlar yükleniyor..."
+    print_status "Установка шрифтов..."
     
     # Nerd Fonts
     if [ ! -d ~/.local/share/fonts/NerdFonts ]; then
@@ -144,26 +144,26 @@ install_fonts() {
         cd - > /dev/null
     fi
     
-    # Font cache'i yenile
+    # Обновить кэш шрифтов
     fc-cache -fv
     
-    print_success "Fontlar yüklendi!"
+    print_success "Шрифты установлены!"
 }
 
-# Oh My Zsh kurulumu
+# Установка Oh My Zsh
 install_oh_my_zsh() {
-    print_status "Oh My Zsh kuruluyor..."
+    print_status "Установка Oh My Zsh..."
     
     if [ ! -d ~/.oh-my-zsh ]; then
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     fi
     
-    # Powerlevel10k temasını yükle
+    # Установить тему Powerlevel10k
     if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
     fi
     
-    # Zsh eklentilerini yükle
+    # Установить плагины Zsh
     if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
         git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     fi
@@ -172,26 +172,26 @@ install_oh_my_zsh() {
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
     
-    print_success "Oh My Zsh kuruldu!"
+    print_success "Oh My Zsh установлен!"
 }
 
-# Neovim eklentilerini yükle
+# Установить плагины Neovim
 install_neovim_plugins() {
-    print_status "Neovim eklentileri yükleniyor..."
+    print_status "Установка плагинов Neovim..."
     
     if command -v nvim &> /dev/null; then
         nvim --headless -c 'autocmd User LazyDone quitall' -c 'Lazy sync'
-        print_success "Neovim eklentileri yüklendi!"
+        print_success "Плагины Neovim установлены!"
     else
-        print_warning "Neovim bulunamadı, eklentiler yüklenemedi."
+        print_warning "Neovim не найден, плагины не установлены."
     fi
 }
 
-# Servisleri etkinleştir
+# Включить сервисы
 enable_services() {
-    print_status "Servisler etkinleştiriliyor..."
+    print_status "Включение сервисов..."
     
-    # libvirt servisini etkinleştir (eğer yüklüyse)
+    # Включить сервис libvirt (если установлен)
     if systemctl list-unit-files | grep -q libvirtd; then
         sudo systemctl enable --now libvirtd
         sudo usermod -a -G libvirt $USER
