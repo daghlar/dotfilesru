@@ -51,25 +51,25 @@ apply_theme() {
         print_success "Конфигурация Hyprland обновлена!"
     fi
     
-    # Waybar konfigürasyonunu güncelle
+    # Обновить конфигурацию Waybar
     if [ -f ~/.config/waybar/style.css ]; then
-        # Mevcut CSS'i yedekle
+        # Создать резервную копию текущего CSS
         cp ~/.config/waybar/style.css ~/.config/waybar/style.css.backup
         
-        # Renkleri güncelle
+        # Обновить цвета
         sed -i "s/background: .*/background: $waybar_bg;/" ~/.config/waybar/style.css
         sed -i "s/color: .*/color: $waybar_fg;/" ~/.config/waybar/style.css
         
-        print_success "Waybar konfigürasyonu güncellendi!"
+        print_success "Конфигурация Waybar обновлена!"
     fi
     
-    # Hyprland'i yeniden yükle
+    # Перезагрузить Hyprland
     if pgrep -x "Hyprland" > /dev/null; then
         hyprctl reload
-        print_success "Hyprland yeniden yüklendi!"
+        print_success "Hyprland перезагружен!"
     fi
     
-    print_success "$theme_name teması başarıyla uygulandı!"
+    print_success "Тема $theme_name успешно применена!"
 }
 
 # Mevcut temaları listele
