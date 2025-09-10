@@ -1,11 +1,11 @@
 #!/bin/bash
 # ===========================================
-# THEME APPLIER SCRIPT
+# СКРИПТ ПРИМЕНЕНИЯ ТЕМ
 # ===========================================
 
 set -e
 
-# Renk kodları
+# Цветовые коды
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -30,11 +30,11 @@ apply_theme() {
     local theme_file="themes/${theme_name}.conf"
     
     if [ ! -f "$theme_file" ]; then
-        print_error "Tema dosyası bulunamadı: $theme_file"
+        print_error "Файл темы не найден: $theme_file"
         exit 1
     fi
     
-    print_status "$theme_name teması uygulanıyor..."
+    print_status "Применение темы $theme_name..."
     
     # Tema dosyasını kaynak olarak yükle
     source "$theme_file"
