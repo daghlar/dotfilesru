@@ -72,9 +72,9 @@ apply_theme() {
     print_success "Тема $theme_name успешно применена!"
 }
 
-# Mevcut temaları listele
+# Список доступных тем
 list_themes() {
-    echo "Mevcut temalar:"
+    echo "Доступные темы:"
     for theme in themes/*.conf; do
         if [ -f "$theme" ]; then
             echo "  - $(basename "$theme" .conf)"
@@ -92,14 +92,14 @@ main() {
             list_themes
             ;;
         "help"|*)
-            echo "Kullanım: $0 [tema_adi|list|help]"
+            echo "Использование: $0 [имя_темы|list|help]"
             echo
-            echo "Komutlar:"
-            echo "  catppuccin  - Catppuccin temasını uygula"
-            echo "  dracula     - Dracula temasını uygula"
-            echo "  nord        - Nord temasını uygula"
-            echo "  list        - Mevcut temaları listele"
-            echo "  help        - Bu yardım mesajını göster"
+            echo "Команды:"
+            echo "  catppuccin  - Применить тему Catppuccin"
+            echo "  dracula     - Применить тему Dracula"
+            echo "  nord        - Применить тему Nord"
+            echo "  list        - Показать доступные темы"
+            echo "  help        - Показать это сообщение помощи"
             echo
             list_themes
             ;;
