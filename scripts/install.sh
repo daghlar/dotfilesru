@@ -67,52 +67,52 @@ check_dependencies() {
     fi
 }
 
-# Konfigürasyon dosyalarını kopyala
+# Копировать конфигурационные файлы
 install_configs() {
-    print_status "Konfigürasyon dosyaları kopyalanıyor..."
+    print_status "Копирование конфигурационных файлов..."
     
-    # Ana dizin oluştur
+    # Создать основные каталоги
     mkdir -p ~/.config/{hypr,waybar,rofi,kitty,swaylock,wofi,gtk-3.0,gtk-4.0}
     
-    # Konfigürasyon dosyalarını kopyala
+    # Копировать конфигурационные файлы
     cp -r .config/* ~/.config/
     
-    # Script dosyalarını kopyala
+    # Копировать скрипты
     mkdir -p ~/.local/bin
     cp scripts/* ~/.local/bin/
     chmod +x ~/.local/bin/*
     
-    print_success "Konfigürasyon dosyaları kopyalandı!"
+    print_success "Конфигурационные файлы скопированы!"
 }
 
-# Wallpaper ayarla
+# Настроить обои
 setup_wallpaper() {
-    print_status "Wallpaper ayarlanıyor..."
+    print_status "Настройка обоев..."
     
-    # Wallpaper dizini oluştur
+    # Создать каталог для обоев
     mkdir -p ~/Pictures/Wallpapers
     
-    # Örnek wallpaper indir (isteğe bağlı)
+    # Скачать пример обоев (опционально)
     if [ ! -f ~/Pictures/Wallpapers/default.jpg ]; then
-        print_status "Örnek wallpaper indiriliyor..."
+        print_status "Скачивание примера обоев..."
         curl -L "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop" -o ~/Pictures/Wallpapers/default.jpg
     fi
     
-    # Hyprpaper konfigürasyonu
+    # Конфигурация Hyprpaper
     cat > ~/.config/hypr/hyprpaper.conf << EOF
 preload = ~/Pictures/Wallpapers/default.jpg
 wallpaper = DP-1,~/Pictures/Wallpapers/default.jpg
 wallpaper = HDMI-A-1,~/Pictures/Wallpapers/default.jpg
 EOF
     
-    print_success "Wallpaper ayarlandı!"
+    print_success "Обои настроены!"
 }
 
-# GTK tema ayarla
+# Настроить GTK тему
 setup_gtk() {
-    print_status "GTK tema ayarlanıyor..."
+    print_status "Настройка GTK темы..."
     
-    # GTK-3.0 ayarları
+    # Настройки GTK-3.0
     cat > ~/.config/gtk-3.0/settings.ini << EOF
 [Settings]
 gtk-theme-name=Adwaita-dark
@@ -130,7 +130,7 @@ gtk-xft-hinting=1
 gtk-xft-hintstyle=hintfull
 EOF
 
-    # GTK-4.0 ayarları
+    # Настройки GTK-4.0
     cat > ~/.config/gtk-4.0/settings.ini << EOF
 [Settings]
 gtk-theme-name=Adwaita-dark
@@ -139,15 +139,15 @@ gtk-font-name=JetBrains Mono 10
 gtk-cursor-theme-name=Adwaita
 EOF
     
-    print_success "GTK tema ayarlandı!"
+    print_success "GTK тема настроена!"
 }
 
-# Swaylock konfigürasyonu
+# Конфигурация Swaylock
 setup_swaylock() {
-    print_status "Swaylock konfigürasyonu ayarlanıyor..."
+    print_status "Настройка конфигурации Swaylock..."
     
     cat > ~/.config/swaylock/config << EOF
-# Swaylock konfigürasyonu
+# Конфигурация Swaylock
 daemonize
 ignore-empty-password
 show-failed-attempts
@@ -177,13 +177,13 @@ text-wrong-color=cdd6f4
 ring-wrong-color=f38ba8
 EOF
     
-    print_success "Swaylock konfigürasyonu ayarlandı!"
+    print_success "Конфигурация Swaylock настроена!"
 }
 
-# Ana kurulum fonksiyonu
+# Основная функция установки
 main() {
     echo "==========================================="
-    echo "    HYPRLAND PROFESSIONAL DOTFILES"
+    echo "    ПРОФЕССИОНАЛЬНЫЕ DOTFILES HYPRLAND"
     echo "==========================================="
     echo
     
@@ -195,16 +195,16 @@ main() {
     
     echo
     echo "==========================================="
-    print_success "Kurulum tamamlandı!"
+    print_success "Установка завершена!"
     echo "==========================================="
     echo
-    echo "Kullanım:"
-    echo "  - Hyprland'i başlatmak için: Hyprland"
-    echo "  - Konfigürasyonu yeniden yüklemek için: hyprctl reload"
-    echo "  - Waybar'ı yeniden başlatmak için: pkill waybar && waybar &"
+    echo "Использование:"
+    echo "  - Для запуска Hyprland: Hyprland"
+    echo "  - Для перезагрузки конфигурации: hyprctl reload"
+    echo "  - Для перезапуска Waybar: pkill waybar && waybar &"
     echo
-    print_warning "Sistemi yeniden başlatmanız önerilir."
+    print_warning "Рекомендуется перезагрузить систему."
 }
 
-# Scripti çalıştır
+# Запустить скрипт
 main "$@"
