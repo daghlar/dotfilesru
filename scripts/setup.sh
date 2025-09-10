@@ -228,7 +228,7 @@ download_wallpapers() {
     print_success "Wallpaper'lar indirildi!"
 }
 
-# Ana kurulum fonksiyonu
+# Основная функция установки
 main() {
     echo "==========================================="
     echo "    PROFESSIONAL DOTFILES SETUP"
@@ -252,7 +252,7 @@ main() {
     echo "1. Sistemi yeniden başlatın"
     echo "2. Zsh'i varsayılan shell yapın: chsh -s /bin/zsh"
     echo "3. Hyprland'i başlatın"
-    echo "4. P10k konfigürasyonu yapın: p10k configure"
+    echo "4. Настройте P10k: p10k configure"
     echo
     print_warning "Sistemi yeniden başlatmanız önerilir."
 }
